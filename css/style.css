@@ -138,11 +138,86 @@ h1, h2, h3 {
 }
 
 .header__link {
+    position: relative;
     font-family: var(--font-family);
     font-weight: 600;
     font-size: 18px;
     color: var(--color-black);
 }
+
+.header__link::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    z-index: 1;
+    background-color: #f90;
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out ;
+}
+
+.header__link:focus {
+    outline: 2px solid #f90;
+    outline-offset: 3px;
+}
+
+.header__link:hover::before {
+    opacity: 1;
+    width: 100%;
+}
+
+.header__link:active {
+    outline: none;
+    color: #e1670e;
+}
+
+.header__link:active::before {
+    background-color: #e1670e;
+}
+
+.header__btn {
+    cursor: pointer;
+}
+
+.header__btn path {
+    stroke: black;
+    transition: stroke 0.3s ease-in-out;
+}
+
+.header__btn:focus {
+    outline: 2px solid #f90;
+    outline-offset: 3px;
+}
+
+.header__btn:hover path {
+    stroke: #FF9900;
+}
+
+.header__btn:active path {
+    stroke: black;
+    outline: none;
+}
+
+.header__btn:active {
+    outline: none;
+}
+
+.header__btn rect {
+    fill: black;
+    transition: fill 0.3s ease-in-out;
+}
+
+.header__btn:hover rect {
+    fill: #FF9900;
+}
+
+.header__btn:active rect {
+    fill: black;
+}
+
 
 /* slogan */
 
@@ -192,6 +267,20 @@ h1, h2, h3 {
     border-radius: 16px;
     padding: 18px 37px;
     background-color: var(--background-btn);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.slogan__btn:focus {
+    background-color: #ffb84d;
+}
+
+.slogan__btn:hover {
+    background-color: #ffb84d;
+}
+
+.slogan__btn:active {
+    background-color: #e1670e;
 }
 
 
@@ -258,6 +347,19 @@ h1, h2, h3 {
     border: 3px solid var(--background-btn);
     border-radius: 16px;
     padding: 19px 38px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.about-us__link:focus {
+    background-color: #f90;
+}
+
+.about-us__link:hover {
+    background-color: #f90;
+}
+
+.about-us__link:active {
+    background-color: #e1670e;
 }
 
 .about-us__right {
@@ -290,11 +392,14 @@ h1, h2, h3 {
 
 .about-us__feature {
     display: flex;
-    flex-wrap: wrap;
     border: 1px solid var(--color-footer);
     border-radius: 32px;
     gap: 50px;
     padding: 65px 60px;
+}
+
+.about-us__img {
+    object-fit: contain;
 }
 
 .about-us__feature-content {
@@ -380,6 +485,20 @@ h1, h2, h3 {
     padding: 19px 38px;
     background-color: var(--background-btn);
     margin-right: 32px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.stages__btn--more:focus {
+    background-color: #ffb84d;
+}
+
+.stages__btn--more:hover {
+    background-color: #ffb84d;
+}
+
+.stages__btn--more:active {
+    background-color: #e1670e;
 }
 
 .stages__btn--contract {
@@ -391,6 +510,25 @@ h1, h2, h3 {
     border: 1px solid var(--color-black);
     border-radius: 16px;
     padding: 19px 38px;
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out, color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.stages__btn--contract:focus {
+    border: 1px solid #666;
+    background-color: #666;
+    color: #fff;
+}
+
+.stages__btn--contract:hover {
+    border: 1px solid #666;
+    background-color: #666;
+    color: #fff;
+}
+
+.stages__btn--contract:active {
+    background-color: #000;
+    color: #fff;
 }
 
 
@@ -472,11 +610,48 @@ h1, h2, h3 {
     font-size: 18px;
     line-height: 36px;
     color: var(--color-footer);
+    transition: color 0.3s ease-in-out, outline 0.3s ease-in-out;
+}
+
+.footer__link:focus {
+    outline: 2px solid #f90;
+    outline-offset: 3px;
+}
+
+.footer__link:hover {
+    color: #f90;
+}
+
+.footer__link:active {
+    outline: none;
+    color: #e1670e;
 }
 
 .social__list {
     display: flex;
     gap: 25px;
+}
+
+.social__link path {
+    fill: #666;
+    transition: fill 0.3s ease-in-out, outline 0.3s ease-in-out;
+}
+
+.social__link:focus {
+    outline: 2px solid #f90;
+    outline-offset: 3px;
+}
+
+.social__link:hover path{
+    fill: #FF9900;
+}
+
+.social__link:active path{
+    fill: #E1670E;
+}
+
+.social__link:active{
+    outline: none;
 }
 
 .footer__medium {
@@ -517,6 +692,23 @@ h1, h2, h3 {
     color: var(--color-footer);
     padding: 14px 24px;
     border: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.footer__input:focus {
+    outline: none;
+    border: none;
+    background-color: #666;
+}
+
+.footer__input:hover {
+    outline: none;
+    border: none;
+    background-color: #666;
+}
+
+.footer__input:active {
+    color: #fff;
 }
 
 .footer__textarea {
@@ -529,6 +721,23 @@ h1, h2, h3 {
     color: var(--color-footer);
     padding: 14px 24px 104px 24px;
     border: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.footer__textarea:focus {
+    outline: none;
+    border: none;
+    background-color: #666;
+}
+
+.footer__textarea:hover {
+    outline: none;
+    border: none;
+    background-color: #666;
+}
+
+.footer__textarea:active {
+    color: #fff;
 }
 
 .footer__submit {
@@ -546,14 +755,77 @@ h1, h2, h3 {
     padding: 19px 52px;
     background-color: var(--background-btn);
     color: var(--color-white);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.footer__checkbox span {
+.footer__btn:focus {
+    background-color: #ffb84d;
+}
+
+.footer__btn:hover {
+    background-color: #ffb84d;
+}
+
+.footer__btn:active {
+    background-color: #e1670e;
+}
+
+.footer__checkbox-text {
+    position: relative;
+    padding-left: 18px;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 16px;
     line-height: 32px;
     color: var(--color-footer);
+}
+
+.footer__checkbox-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  transform: translateY(-50%);
+}
+
+.footer__checkbox-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background-image: url("/img/footer-checkbox.svg");
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.footer__input--checkbox:checked + .footer__checkbox-text::after {
+  opacity: 1;
+}
+
+.footer__input--checkbox:focus + .footer__checkbox-text {
+  outline: 1px solid #fff;
+  outline-offset: 3px;
+}
+
+.footer__checkbox {
+    user-select: none;
+    cursor: pointer;
+}
+
+.footer__input--checkbox {
+  position: absolute;
+  appearance: none;
 }
 
 .footer__text {
