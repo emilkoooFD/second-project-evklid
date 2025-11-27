@@ -319,7 +319,7 @@ h1, h2, h3 {
 }
 
 .about-us__content {
-    max-width: 870px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -330,6 +330,7 @@ h1, h2, h3 {
 
 .about-us__text {
     flex: 1;
+    max-width: 433px;
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 16px;
